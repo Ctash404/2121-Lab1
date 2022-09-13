@@ -112,44 +112,42 @@ void List<T>::insertAt(T value, int j){
 //Make no other changes to list
 template <class T>
 void List<T>::removeStart(){
-    startNode->nullptr;
+    free();
 }
 
 //Remove node at end
 //Make no other changes to list
 template <class T>
 void List<T>::removeEnd(){
-    delete endNode;
+    
 }
 
 //Remove node at position j
 //Make no other changes to list
 template <class T>
 void List<T>::removeAt(int j){
-    delete jNode;
+    
 }
 
 //Return the value of the first node in the Linked List,
 //If no first node, return the default constructed value: T()
 template <class T>
 T List<T>::getFirst(){
-    if(startNode == nullptr)
-    {
-        return T();
-    }
-    return startNode;
+    
 }
 
 //Return the value of the last node in the Linked List,
 //If no first node, return the default constructed value: T()
 template <class T>
 T List<T>::getLast(){
+    
 }
 
 //Return the value of the node at position j in the Linked List,
 //If no first node, return the default constructed value: T()
 template <class T>
 T List<T>::getAt(int j){
+    
 }
 
 //Return the position of the (first) node whose value is equal to the key
