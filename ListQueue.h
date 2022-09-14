@@ -36,11 +36,13 @@ class ListQueue{
 //Construct an empty ListQueue by initializing this ListQueue's instance variables
 template <class T>
 ListQueue<T>::ListQueue(){
+  queue = nullptr;
 }
 
 //Destroy all nodes in this ListQueue to prevent memory leaks
 template <class T>
 ListQueue<T>::~ListQueue(){
+  delete queue;
 }
 
 //Return the size of this ListQueue

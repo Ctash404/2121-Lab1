@@ -65,20 +65,22 @@ List<T>::List(){
 template <class T>
 List<T>::~List(){
     delete start;
-
 }
 
 //Return the size of this list
 template <class T>
 int List<T>::size(){
-    return mySize = sizeof(&start);
+     Node<T> *size = start;
+
+    while(size->next != NULL) { mySize++; }
+    return mySize;
 }
 
 //Return true if this list is empty
 //Otherwise, return false
 template <class T>
 bool List<T>::empty(){
-    if(start == nullptr)
+    if(mySize == 0)
     {
         return true;
     }
@@ -89,30 +91,51 @@ bool List<T>::empty(){
 //into this list at start
 template <class T>
 void List<T>::insertStart(T value){
-    Node<T> * startNode[value] = new Node<T>;
-    startNode[value] -> start;
+   Node newNode = new Node(value);
+ 
+   newNode.next = start;
+ 
+   start = newNode;
 }
 
 //Create a new node with value, and insert that new node
 //into this list at end
 template <class T>
 void List<T>::insertEnd(T value){
-    Node<T> * endNode[value] = new Node<T>;
-    endNode[value] -> start;
+    //allocate the node and assign data
+    Node newNode = new Node(value); 
+ 
+    if (start == nullptr) 
+    { 
+        start = new Node(value); 
+        return; 
+    } 
+ 
+    newNode.next = nullptr; 
+    
+    Node last = start;
+    while (last.next != nullptr)
+    last = last.next;
+
+    last.next = newNode;
+
 }
 
 //Create a new node with value <value>, and insert that new node at position j
 template <class T>
 void List<T>::insertAt(T value, int j){
-    Node<T> * jNode[value] = new Node<T>;
-    jNode[value] -> start;
+Node newNode = new Node(j);
+
+newNode.next = value.next;
+
+value.next = newNode;
 }
 
 //Remove node at start
 //Make no other changes to list
 template <class T>
 void List<T>::removeStart(){
-    free();
+   
 }
 
 //Remove node at end
@@ -122,11 +145,12 @@ void List<T>::removeEnd(){
     
 }
 
+
 //Remove node at position j
 //Make no other changes to list
 template <class T>
 void List<T>::removeAt(int j){
-    
+   
 }
 
 //Return the value of the first node in the Linked List,
@@ -154,4 +178,5 @@ T List<T>::getAt(int j){
 //Otherwise, return -1
 template <class T>
 int List<T>::find(T key){
+   
 }
